@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  jupyter:
+    image: ia-notebook:1.0
+    container_name: iaNotes
+    ports:
+      - "5001:8888"
+    volumes:
+      - jpData:/home/jovyan/work  # Using named volume
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    command: start-notebook.sh --NotebookApp.token=''
+
+volumes:
+  jpData:  # Named volume declaration
+
